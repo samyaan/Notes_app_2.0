@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:sqflite/sqflite.dart';
 import 'dart:async';
 import 'package:path_provider/path_provider.dart';
@@ -68,8 +67,7 @@ class DatabaseHelper {
   }
 
   // Update Operation: Update a Note object and save it to database
-  Future<int> updateNote(Note note) async {
-    var db = await this.database;
+  Future<int> updateNote(Note note) async {    var db = await this.database;
     var result = await db.update(noteTable, note.toMap(),
         where: '$colId = ?', whereArgs: [note.id]);
     return result;

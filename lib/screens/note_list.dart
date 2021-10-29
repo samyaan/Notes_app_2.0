@@ -8,6 +8,7 @@ import 'package:notes_app/screens/search_note.dart';
 import 'package:notes_app/utils/widgets.dart';
 import 'package:sqflite/sqflite.dart';
 
+
 class NoteList extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -33,7 +34,7 @@ class NoteListState extends State<NoteList> {
         title: Text('Notes', style: Theme.of(context).textTheme.headline),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.red,
         leading: noteList.length == 0
             ? Container()
             : IconButton(
@@ -73,7 +74,7 @@ class NoteListState extends State<NoteList> {
       appBar: myAppBar(),
       body: noteList.length == 0
           ? Container(
-              color: Colors.white,
+              color: Colors.grey.shade800,
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -87,13 +88,14 @@ class NoteListState extends State<NoteList> {
               child: getNotesList(),
             ),
       floatingActionButton: FloatingActionButton(
+        focusColor: Colors.red,
         onPressed: () {
           navigateToDetail(Note('', '', 3, 0), 'Add Note');
         },
         tooltip: 'Add Note',
         shape: CircleBorder(side: BorderSide(color: Colors.black, width: 2.0)),
         child: Icon(Icons.add, color: Colors.black),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.red,
       ),
     );
   }

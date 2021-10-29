@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:notes_app/db_helper/db_helper.dart';
 import 'package:notes_app/modal_class/notes.dart';
 import 'package:notes_app/utils/widgets.dart';
+import 'package:notes_app/screens/voicetwo.dart';
 
 class NoteDetail extends StatefulWidget {
   final String appBarTitle;
@@ -67,6 +68,15 @@ class NoteDetailState extends State<NoteDetail> {
                 onPressed: () {
                   showDeleteDialog(context);
                 },
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.mic,
+                  color: Colors.black,
+                ),
+                onPressed:(){
+                  moveToVoice();
+                },
               )
             ],
           ),
@@ -81,16 +91,7 @@ class NoteDetailState extends State<NoteDetail> {
                     note.priority = 3 - index;
                   },
                 ),
-                ColorPicker(
-                  selectedIndex: note.color,
-                  onTap: (index) {
-                    setState(() {
-                      color = index;
-                    });
-                    isEdited = true;
-                    note.color = index;
-                  },
-                ),
+               
                 Padding(
                   padding: EdgeInsets.all(16.0),
                   child: TextField(
@@ -128,6 +129,8 @@ class NoteDetailState extends State<NoteDetail> {
           ),
         ));
   }
+
+
 
   void showDiscardDialog(BuildContext context) {
     showDialog(
@@ -239,6 +242,10 @@ class NoteDetailState extends State<NoteDetail> {
         );
       },
     );
+  }
+
+  void moveToVoice() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Stt()));
   }
 
   void moveToLastScreen() {

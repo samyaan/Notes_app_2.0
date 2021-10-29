@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  speech_recognition: ^0.3.0+1
 
   sqflite:
   path_provider:
