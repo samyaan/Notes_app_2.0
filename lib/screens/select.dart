@@ -7,7 +7,7 @@ class Category extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Notes', style: Theme.of(context).textTheme.headline),
+          title: Text('Notes', style: Theme.of(context).textTheme.headline1),
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.red,
